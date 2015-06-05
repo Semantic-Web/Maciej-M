@@ -1,0 +1,852 @@
+@prefix : <http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27> .
+
+<http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27> rdf:type owl:Ontology ;
+                                                                            
+                                                                            rdfs:comment "A wrist worn accelerometer ontology that describes functionality of the device." .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#hasSensor
+
+:hasSensor rdf:type owl:ObjectProperty ;
+           
+           rdfs:domain :Pedometer ;
+           
+           rdfs:range :PedometerSensor .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isActivityDetectedBy
+
+:isActivityDetectedBy rdf:type owl:ObjectProperty ;
+                      
+                      rdfs:domain :MotionPrimitives ;
+                      
+                      rdfs:range :PedometerSensor ;
+                      
+                      owl:inverseOf :isDetectingActivity .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isActivityStoredBy
+
+:isActivityStoredBy rdf:type owl:ObjectProperty ;
+                    
+                    rdfs:domain :MotionPrimitives ;
+                    
+                    rdfs:range :PedometerData ;
+                    
+                    rdfs:subPropertyOf :isStoredBy .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isDetectingActivity
+
+:isDetectingActivity rdf:type owl:ObjectProperty ;
+                     
+                     rdfs:range :MotionPrimitives ;
+                     
+                     rdfs:domain :PedometerSensor .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isOwnedBy
+
+:isOwnedBy rdf:type owl:ObjectProperty ;
+           
+           rdfs:range :Human ;
+           
+           rdfs:domain :Pedometer .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isOwnerOf
+
+:isOwnerOf rdf:type owl:ObjectProperty ;
+           
+           rdfs:domain :Human ;
+           
+           rdfs:range :Pedometer ;
+           
+           owl:inverseOf :isOwnedBy .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isOwnerStoredBy
+
+:isOwnerStoredBy rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:domain :Human ;
+                 
+                 rdfs:range :PedometerData ;
+                 
+                 rdfs:subPropertyOf :isStoredBy .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isSensorOf
+
+:isSensorOf rdf:type owl:ObjectProperty ;
+            
+            rdfs:range :Pedometer ;
+            
+            rdfs:domain :PedometerSensor ;
+            
+            owl:inverseOf :hasSensor .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isStatusStoredBy
+
+:isStatusStoredBy rdf:type owl:ObjectProperty ;
+                  
+                  rdfs:range :PedometerData ;
+                  
+                  rdfs:domain :PedometerStatus ;
+                  
+                  rdfs:subPropertyOf :isStoredBy ;
+                  
+                  owl:inverseOf :isStoringStatus .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isStorageOf
+
+:isStorageOf rdf:type owl:FunctionalProperty ,
+                      owl:ObjectProperty ;
+             
+             rdfs:range :Pedometer ;
+             
+             rdfs:domain :PedometerData ;
+             
+             owl:inverseOf :isStoredBy .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isStoredBy
+
+:isStoredBy rdf:type owl:FunctionalProperty ,
+                     owl:ObjectProperty ;
+            
+            rdfs:domain :Pedometer ;
+            
+            rdfs:range :PedometerData .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isStoringActivity
+
+:isStoringActivity rdf:type owl:ObjectProperty ;
+                   
+                   rdfs:range :MotionPrimitives ;
+                   
+                   rdfs:domain :PedometerData ;
+                   
+                   owl:inverseOf :isActivityStoredBy ;
+                   
+                   rdfs:subPropertyOf :isStorageOf .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isStoringOwner
+
+:isStoringOwner rdf:type owl:ObjectProperty ;
+                
+                rdfs:range :Human ;
+                
+                rdfs:domain :PedometerData ;
+                
+                owl:inverseOf :isOwnerStoredBy ;
+                
+                rdfs:subPropertyOf :isStorageOf .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isStoringStatus
+
+:isStoringStatus rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:domain :PedometerData ;
+                 
+                 rdfs:range :PedometerStatus ;
+                 
+                 rdfs:subPropertyOf :isStorageOf .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isStoringTimestamp
+
+:isStoringTimestamp rdf:type owl:ObjectProperty ;
+                    
+                    rdfs:domain :PedometerData ;
+                    
+                    rdfs:range :Timestamp ;
+                    
+                    rdfs:subPropertyOf :isStorageOf .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#isTimestampStoredBy
+
+:isTimestampStoredBy rdf:type owl:ObjectProperty ;
+                     
+                     rdfs:range :PedometerData ;
+                     
+                     rdfs:domain :Timestamp ;
+                     
+                     rdfs:subPropertyOf :isStoredBy ;
+                     
+                     owl:inverseOf :isStoringTimestamp .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HumanAge
+
+:HumanAge rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :Age ;
+          
+          rdfs:range xsd:integer .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HumanWeight
+
+:HumanWeight rdf:type owl:DatatypeProperty ;
+             
+             rdfs:domain :Weight ;
+             
+             rdfs:range xsd:integer ;
+             
+             rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Accelerometer
+
+:Accelerometer rdf:type owl:Class ;
+               
+               rdfs:subClassOf :PedometerSensor .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Age
+
+:Age rdf:type owl:Class ;
+     
+     owl:equivalentClass [ rdf:type owl:Restriction ;
+                           owl:onProperty :HumanAge ;
+                           owl:someValuesFrom xsd:integer
+                         ] ;
+     
+     rdfs:subClassOf :Human ;
+     
+     rdfs:comment "Age of human using the device" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#BrushTeeth
+
+:BrushTeeth rdf:type owl:Class ;
+            
+            rdfs:subClassOf :MotionPrimitives ;
+            
+            rdfs:comment "Human Motion Primitives activity in which human is to brush one's teeth with a tootbrush" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#ClimbStairs
+
+:ClimbStairs rdf:type owl:Class ;
+             
+             rdfs:subClassOf :MotionPrimitives ;
+             
+             rdfs:comment "Human Motion Primitives activity in which human is to climb a number of steps of a staircase" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#CombHair
+
+:CombHair rdf:type owl:Class ;
+          
+          rdfs:subClassOf :MotionPrimitives ;
+          
+          rdfs:comment "Human Motion Primitives activity in which human is to comb one's hair with a brush" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Compass
+
+:Compass rdf:type owl:Class ;
+         
+         rdfs:subClassOf :PedometerSensor .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Day
+
+:Day rdf:type owl:Class ;
+     
+     rdfs:subClassOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#DescendStairs
+
+:DescendStairs rdf:type owl:Class ;
+               
+               rdfs:subClassOf :MotionPrimitives ;
+               
+               rdfs:comment "Human Motion Primitives activity in which human is to descend a number of steps of a staircase" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#DrinkGlass
+
+:DrinkGlass rdf:type owl:Class ;
+            
+            rdfs:subClassOf :MotionPrimitives ;
+            
+            rdfs:comment "Human Motion Primitives activity in which human is to pick a glass from a table, drink and put it back on the table" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#EatMeat
+
+:EatMeat rdf:type owl:Class ;
+         
+         rdfs:subClassOf :MotionPrimitives ;
+         
+         rdfs:comment "Human Motion Primitives activity in which human is to eat something using fork and knife" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#EatSoup
+
+:EatSoup rdf:type owl:Class ;
+         
+         rdfs:subClassOf :MotionPrimitives ;
+         
+         rdfs:comment "Human Motion Primitives activity in which human is to eat something using a spoon" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Female
+
+:Female rdf:type owl:Class ;
+        
+        rdfs:subClassOf :Gender ;
+        
+        owl:disjointWith :Male .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#FirstName
+
+:FirstName rdf:type owl:Class ;
+           
+           rdfs:subClassOf :Human ;
+           
+           rdfs:comment "First name of human using the device" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Gender
+
+:Gender rdf:type owl:Class ;
+        
+        owl:equivalentClass [ rdf:type owl:Class ;
+                              owl:unionOf ( :Female
+                                            :Male
+                                          )
+                            ] ;
+        
+        rdfs:subClassOf :Human ;
+        
+        rdfs:comment "Gender of human using the device" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#GetupBed
+
+:GetupBed rdf:type owl:Class ;
+          
+          rdfs:subClassOf :MotionPrimitives ;
+          
+          rdfs:comment "Human Motion Primitives activity in which human is to get up from a lying position on a bed" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Gyroscope
+
+:Gyroscope rdf:type owl:Class ;
+           
+           rdfs:subClassOf :PedometerSensor .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Hour
+
+:Hour rdf:type owl:Class ;
+      
+      rdfs:subClassOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Human
+
+:Human rdf:type owl:Class ;
+       
+       owl:equivalentClass [ rdf:type owl:Class ;
+                             owl:unionOf ( :Age
+                                           :FirstName
+                                           :Gender
+                                           :LastName
+                                           :Weight
+                                         )
+                           ] ;
+       
+       rdfs:subClassOf [ rdf:type owl:Restriction ;
+                         owl:onProperty :isOwnerStoredBy ;
+                         owl:someValuesFrom :PedometerData
+                       ] ;
+       
+       rdfs:comment "Human using the device" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#LastName
+
+:LastName rdf:type owl:Class ;
+          
+          rdfs:subClassOf :Human ;
+          
+          rdfs:comment "Last name of human using the device" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#LiedownBed
+
+:LiedownBed rdf:type owl:Class ;
+            
+            rdfs:subClassOf :MotionPrimitives ;
+            
+            rdfs:comment "Human Motion Primitives activity in which human is to lie down from a standing position on a bed" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Male
+
+:Male rdf:type owl:Class ;
+      
+      rdfs:subClassOf :Gender .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#MeasurementRange
+
+:MeasurementRange rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf :PedometerStatus .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Minute
+
+:Minute rdf:type owl:Class ;
+        
+        rdfs:subClassOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Month
+
+:Month rdf:type owl:Class ;
+       
+       rdfs:subClassOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#MotionPrimitives
+
+:MotionPrimitives rdf:type owl:Class ;
+                  
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:unionOf ( :BrushTeeth
+                                                      :ClimbStairs
+                                                      :CombHair
+                                                      :DescendStairs
+                                                      :DrinkGlass
+                                                      :EatMeat
+                                                      :EatSoup
+                                                      :GetupBed
+                                                      :LiedownBed
+                                                      :PourWater
+                                                      :SitdownChair
+                                                      :StandupChair
+                                                      :UseTelephone
+                                                      :Walk
+                                                    )
+                                      ] ;
+                  
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty :isActivityStoredBy ;
+                                    owl:someValuesFrom :PedometerData
+                                  ] ;
+                  
+                  rdfs:comment "Human Motion Primitives activities performed to be recorded by device" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#OutputDataRange
+
+:OutputDataRange rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :PedometerStatus .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Pedometer
+
+:Pedometer rdf:type owl:Class ;
+           
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :isOwnedBy ;
+                             owl:someValuesFrom :Human
+                           ] ;
+           
+           rdfs:comment "Pedometer device" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PedometerCoordinates
+
+:PedometerCoordinates rdf:type owl:Class ;
+                      
+                      owl:equivalentClass [ rdf:type owl:Class ;
+                                            owl:unionOf ( :xAxis
+                                                          :yAxis
+                                                          :zAxis
+                                                        )
+                                          ] ;
+                      
+                      rdfs:subClassOf :PedometerStatus .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PedometerData
+
+:PedometerData rdf:type owl:Class ;
+               
+               owl:equivalentClass [ rdf:type owl:Class ;
+                                     owl:unionOf ( :Human
+                                                   :MotionPrimitives
+                                                   :PedometerStatus
+                                                   :Timestamp
+                                                 )
+                                   ] ;
+               
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty :isStoredBy ;
+                                 owl:allValuesFrom :Pedometer
+                               ] ;
+               
+               rdfs:comment "Data files that store pedometer gathered information" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PedometerSensor
+
+:PedometerSensor rdf:type owl:Class ;
+                 
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:unionOf ( :Accelerometer
+                                                     :Compass
+                                                     :Gyroscope
+                                                   )
+                                     ] ;
+                 
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty :isSensorOf ;
+                                   owl:someValuesFrom :Pedometer
+                                 ] ;
+                 
+                 rdfs:comment "Pedometer sensor used in detecting HMP" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PedometerStatus
+
+:PedometerStatus rdf:type owl:Class ;
+                 
+                 owl:equivalentClass [ rdf:type owl:Class ;
+                                       owl:unionOf ( :MeasurementRange
+                                                     :OutputDataRange
+                                                     :PedometerCoordinates
+                                                     :PedometerType
+                                                     :Sensitivity
+                                                   )
+                                     ] ;
+                 
+                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty :isStatusStoredBy ;
+                                   owl:someValuesFrom :PedometerData
+                                 ] ;
+                 
+                 rdfs:comment "Pedometer status current parameters" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PedometerType
+
+:PedometerType rdf:type owl:Class ;
+               
+               rdfs:subClassOf :PedometerStatus .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PourWater
+
+:PourWater rdf:type owl:Class ;
+           
+           rdfs:subClassOf :MotionPrimitives ;
+           
+           rdfs:comment "Human Motion Primitives activity in which human is to pick a bottle from a table, pour its content in a glass on the table and put it back on the table" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Second
+
+:Second rdf:type owl:Class ;
+        
+        rdfs:subClassOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Sensitivity
+
+:Sensitivity rdf:type owl:Class ;
+             
+             rdfs:subClassOf :PedometerStatus .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#SitdownChair
+
+:SitdownChair rdf:type owl:Class ;
+              
+              rdfs:subClassOf :MotionPrimitives ;
+              
+              rdfs:comment "Human Motion Primitives activity in which human is to sit down on a chair" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#StandupChair
+
+:StandupChair rdf:type owl:Class ;
+              
+              rdfs:subClassOf :MotionPrimitives ;
+              
+              rdfs:comment "Human Motion Primitives activity in which human is to stand up from a chair" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Timestamp
+
+:Timestamp rdf:type owl:Class ;
+           
+           owl:equivalentClass [ rdf:type owl:Class ;
+                                 owl:unionOf ( :Day
+                                               :Hour
+                                               :Minute
+                                               :Month
+                                               :Second
+                                               :Timezone
+                                               :Year
+                                             )
+                               ] ;
+           
+           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                             owl:onProperty :isTimestampStoredBy ;
+                             owl:someValuesFrom :PedometerData
+                           ] ;
+           
+           rdfs:comment "Timestamp of the starting moment of the recording in the format [YYYY-MM-DD-HH-MM-SS]" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Timezone
+
+:Timezone rdf:type owl:Class ;
+          
+          rdfs:subClassOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#UseTelephone
+
+:UseTelephone rdf:type owl:Class ;
+              
+              rdfs:subClassOf :MotionPrimitives ;
+              
+              rdfs:comment "Human Motion Primitives activity in which human is to place a telephone call using a fixed telephone" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Walk
+
+:Walk rdf:type owl:Class ;
+      
+      rdfs:subClassOf :MotionPrimitives ;
+      
+      rdfs:comment "Human Motion Primitives activity in which human is to take a number of steps" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Weight
+
+:Weight rdf:type owl:Class ;
+        
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :HumanWeight ;
+                              owl:someValuesFrom xsd:integer
+                            ] ;
+        
+        rdfs:subClassOf :Human ;
+        
+        rdfs:comment "Weight of human using the device" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Year
+
+:Year rdf:type owl:Class ;
+      
+      rdfs:subClassOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#xAxis
+
+:xAxis rdf:type owl:Class ;
+       
+       rdfs:subClassOf :PedometerCoordinates .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#yAxis
+
+:yAxis rdf:type owl:Class ;
+       
+       rdfs:subClassOf :PedometerCoordinates .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#zAxis
+
+:zAxis rdf:type owl:Class ;
+       
+       rdfs:subClassOf :PedometerCoordinates .
+
+
+
+
+
+#################################################################
+#
+#    General axioms
+#
+#################################################################
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Day
+                :Hour
+                :Minute
+                :Month
+                :Second
+                :Timezone
+                :Year
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :BrushTeeth
+                :ClimbStairs
+                :CombHair
+                :DescendStairs
+                :DrinkGlass
+                :EatMeat
+                :EatSoup
+                :GetupBed
+                :LiedownBed
+                :PourWater
+                :SitdownChair
+                :StandupChair
+                :UseTelephone
+                :Walk
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :MeasurementRange
+                :OutputDataRange
+                :PedometerCoordinates
+                :PedometerType
+                :Sensitivity
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Age
+                :FirstName
+                :Gender
+                :LastName
+                :Weight
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Accelerometer
+                :Compass
+                :Gyroscope
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :xAxis
+                :yAxis
+                :zAxis
+              )
+] .
+
+
+
+
+###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+
