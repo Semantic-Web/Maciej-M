@@ -221,13 +221,79 @@
 #################################################################
 
 
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Coordinates
+
+:Coordinates rdf:type owl:DatatypeProperty ;
+             
+             rdfs:subPropertyOf :PedometerStatus .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Day
+
+:Day rdf:type owl:DatatypeProperty ;
+     
+     rdfs:subPropertyOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Hour
+
+:Hour rdf:type owl:DatatypeProperty ;
+      
+      rdfs:subPropertyOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Human
+
+:Human rdf:type owl:DatatypeProperty .
+
+
+
 ###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HumanAge
 
 :HumanAge rdf:type owl:DatatypeProperty ;
           
-          rdfs:domain :Age ;
+          rdfs:subPropertyOf :Human ;
           
           rdfs:range xsd:integer .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HumanFirstName
+
+:HumanFirstName rdf:type owl:DatatypeProperty ;
+                
+                rdfs:subPropertyOf :Human ;
+                
+                rdfs:range xsd:string .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HumanGender
+
+:HumanGender rdf:type owl:DatatypeProperty ;
+             
+             rdfs:subPropertyOf :Human ;
+             
+             rdfs:range xsd:Name ;
+             
+             rdfs:domain [ rdf:type owl:Class ;
+                           owl:unionOf ( :Female
+                                         :Male
+                                       )
+                         ] .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HumanLastName
+
+:HumanLastName rdf:type owl:DatatypeProperty ;
+               
+               rdfs:subPropertyOf :Human ;
+               
+               rdfs:range xsd:string .
 
 
 
@@ -235,11 +301,166 @@
 
 :HumanWeight rdf:type owl:DatatypeProperty ;
              
-             rdfs:domain :Weight ;
+             rdfs:subPropertyOf :Human ;
              
-             rdfs:range xsd:integer ;
+             rdfs:range xsd:integer .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#MeasurementRange
+
+:MeasurementRange rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:subPropertyOf :PedometerStatus .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Minute
+
+:Minute rdf:type owl:DatatypeProperty ;
+        
+        rdfs:subPropertyOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Month
+
+:Month rdf:type owl:DatatypeProperty ;
+       
+       rdfs:subPropertyOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#MotionPrimitives
+
+:MotionPrimitives rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:domain :MotionPrimitives ;
+                  
+                  rdfs:subPropertyOf :PedometerStatus ;
+                  
+                  rdfs:range xsd:Name .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#OutputDataRate
+
+:OutputDataRate rdf:type owl:DatatypeProperty ;
+                
+                rdfs:domain :OutputDataRange ;
+                
+                rdfs:subPropertyOf :PedometerStatus ;
+                
+                rdfs:range xsd:integer .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PedometerSensor
+
+:PedometerSensor rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:subPropertyOf :PedometerStatus ;
+                 
+                 rdfs:range xsd:Name ;
+                 
+                 rdfs:domain [ rdf:type owl:Class ;
+                               owl:unionOf ( :Accelerometer
+                                             :Compass
+                                             :Gyroscope
+                                           )
+                             ] .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PedometerStatus
+
+:PedometerStatus rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:subPropertyOf owl:topDataProperty .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PedometerType
+
+:PedometerType rdf:type owl:DatatypeProperty ;
+               
+               rdfs:subPropertyOf :PedometerStatus ;
+               
+               rdfs:domain :PedometerType ;
+               
+               rdfs:range xsd:string .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Second
+
+:Second rdf:type owl:DatatypeProperty ;
+        
+        rdfs:subPropertyOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Sensitivity
+
+:Sensitivity rdf:type owl:DatatypeProperty ;
              
-             rdfs:subPropertyOf owl:topDataProperty .
+             rdfs:subPropertyOf :PedometerStatus ;
+             
+             rdfs:domain :Sensitivity ;
+             
+             rdfs:range xsd:integer .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Timestamp
+
+:Timestamp rdf:type owl:DatatypeProperty .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Timezone
+
+:Timezone rdf:type owl:DatatypeProperty ;
+          
+          rdfs:subPropertyOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Year
+
+:Year rdf:type owl:DatatypeProperty ;
+      
+      rdfs:subPropertyOf :Timestamp .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#xAxis
+
+:xAxis rdf:type owl:DatatypeProperty ;
+       
+       rdfs:subPropertyOf :Coordinates ;
+       
+       rdfs:range xsd:integer .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#yAxis
+
+:yAxis rdf:type owl:DatatypeProperty ;
+       
+       rdfs:subPropertyOf :Coordinates ;
+       
+       rdfs:range xsd:integer .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#zAxis
+
+:zAxis rdf:type owl:DatatypeProperty ;
+       
+       rdfs:subPropertyOf :Coordinates ;
+       
+       rdfs:range xsd:integer .
 
 
 
@@ -317,6 +538,11 @@
 
 :Day rdf:type owl:Class ;
      
+     owl:equivalentClass [ rdf:type owl:Restriction ;
+                           owl:onProperty :Day ;
+                           owl:someValuesFrom xsd:integer
+                         ] ;
+     
      rdfs:subClassOf :Timestamp .
 
 
@@ -375,9 +601,12 @@
 
 :FirstName rdf:type owl:Class ;
            
-           rdfs:subClassOf :Human ;
+           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                 owl:onProperty :HumanFirstName ;
+                                 owl:someValuesFrom xsd:string
+                               ] ;
            
-           rdfs:comment "First name of human using the device" .
+           rdfs:subClassOf :Human .
 
 
 
@@ -389,6 +618,10 @@
                               owl:unionOf ( :Female
                                             :Male
                                           )
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :HumanGender ;
+                              owl:someValuesFrom xsd:Name
                             ] ;
         
         rdfs:subClassOf :Human ;
@@ -419,6 +652,11 @@
 
 :Hour rdf:type owl:Class ;
       
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :Hour ;
+                            owl:someValuesFrom xsd:integer
+                          ] ;
+      
       rdfs:subClassOf :Timestamp .
 
 
@@ -439,9 +677,7 @@
        rdfs:subClassOf [ rdf:type owl:Restriction ;
                          owl:onProperty :isOwnerStoredBy ;
                          owl:someValuesFrom :PedometerData
-                       ] ;
-       
-       rdfs:comment "Human using the device" .
+                       ] .
 
 
 
@@ -449,9 +685,12 @@
 
 :LastName rdf:type owl:Class ;
           
-          rdfs:subClassOf :Human ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :HumanLastName ;
+                                owl:someValuesFrom xsd:string
+                              ] ;
           
-          rdfs:comment "Last name of human using the device" .
+          rdfs:subClassOf :Human .
 
 
 
@@ -485,6 +724,11 @@
 
 :Minute rdf:type owl:Class ;
         
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :Minute ;
+                              owl:someValuesFrom xsd:integer
+                            ] ;
+        
         rdfs:subClassOf :Timestamp .
 
 
@@ -492,6 +736,11 @@
 ###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Month
 
 :Month rdf:type owl:Class ;
+       
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :Month ;
+                             owl:someValuesFrom xsd:integer
+                           ] ;
        
        rdfs:subClassOf :Timestamp .
 
@@ -517,14 +766,16 @@
                                                       :UseTelephone
                                                       :Walk
                                                     )
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :MotionPrimitives ;
+                                        owl:someValuesFrom xsd:Name
                                       ] ;
                   
                   rdfs:subClassOf [ rdf:type owl:Restriction ;
                                     owl:onProperty :isActivityStoredBy ;
                                     owl:someValuesFrom :PedometerData
-                                  ] ;
-                  
-                  rdfs:comment "Human Motion Primitives activities performed to be recorded by device" .
+                                  ] .
 
 
 
@@ -594,14 +845,16 @@
                                                      :Compass
                                                      :Gyroscope
                                                    )
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PedometerSensor ;
+                                       owl:someValuesFrom xsd:Name
                                      ] ;
                  
                  rdfs:subClassOf [ rdf:type owl:Restriction ;
                                    owl:onProperty :isSensorOf ;
                                    owl:someValuesFrom :Pedometer
-                                 ] ;
-                 
-                 rdfs:comment "Pedometer sensor used in detecting HMP" .
+                                 ] .
 
 
 
@@ -621,9 +874,7 @@
                  rdfs:subClassOf [ rdf:type owl:Restriction ;
                                    owl:onProperty :isStatusStoredBy ;
                                    owl:someValuesFrom :PedometerData
-                                 ] ;
-                 
-                 rdfs:comment "Pedometer status current parameters" .
+                                 ] .
 
 
 
@@ -648,6 +899,11 @@
 ###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Second
 
 :Second rdf:type owl:Class ;
+        
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :Second ;
+                              owl:someValuesFrom xsd:integer
+                            ] ;
         
         rdfs:subClassOf :Timestamp .
 
@@ -699,15 +955,18 @@
            rdfs:subClassOf [ rdf:type owl:Restriction ;
                              owl:onProperty :isTimestampStoredBy ;
                              owl:someValuesFrom :PedometerData
-                           ] ;
-           
-           rdfs:comment "Timestamp of the starting moment of the recording in the format [YYYY-MM-DD-HH-MM-SS]" .
+                           ] .
 
 
 
 ###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Timezone
 
 :Timezone rdf:type owl:Class ;
+          
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :Timezone ;
+                                owl:someValuesFrom xsd:string
+                              ] ;
           
           rdfs:subClassOf :Timestamp .
 
@@ -727,9 +986,7 @@
 
 :Walk rdf:type owl:Class ;
       
-      rdfs:subClassOf :MotionPrimitives ;
-      
-      rdfs:comment "Human Motion Primitives activity in which human is to take a number of steps" .
+      rdfs:subClassOf :MotionPrimitives .
 
 
 
@@ -752,6 +1009,11 @@
 
 :Year rdf:type owl:Class ;
       
+      owl:equivalentClass [ rdf:type owl:Restriction ;
+                            owl:onProperty :Year ;
+                            owl:someValuesFrom xsd:integer
+                          ] ;
+      
       rdfs:subClassOf :Timestamp .
 
 
@@ -759,6 +1021,11 @@
 ###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#xAxis
 
 :xAxis rdf:type owl:Class ;
+       
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :xAxis ;
+                             owl:someValuesFrom xsd:integer
+                           ] ;
        
        rdfs:subClassOf :PedometerCoordinates .
 
@@ -768,6 +1035,11 @@
 
 :yAxis rdf:type owl:Class ;
        
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :yAxis ;
+                             owl:someValuesFrom xsd:integer
+                           ] ;
+       
        rdfs:subClassOf :PedometerCoordinates .
 
 
@@ -776,7 +1048,386 @@
 
 :zAxis rdf:type owl:Class ;
        
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :zAxis ;
+                             owl:someValuesFrom xsd:integer
+                           ] ;
+       
        rdfs:subClassOf :PedometerCoordinates .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HD-MedykMaciej
+
+:HD-MedykMaciej rdf:type :Human ,
+                         owl:NamedIndividual ;
+                
+                :HumanWeight 210 ;
+                
+                :HumanAge 35 ;
+                
+                :HumanLastName "Medyk" ;
+                
+                :HumanGender "Male" ;
+                
+                :HumanFirstName "Maciej" ;
+                
+                :isOwnerOf :PD-Omron-HJ720 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HD-ObamaBarack
+
+:HD-ObamaBarack rdf:type :Human ,
+                         owl:NamedIndividual ;
+                
+                :HumanWeight 195 ;
+                
+                :HumanAge 54 ;
+                
+                :HumanLastName "Obama" ;
+                
+                :HumanFirstName "Barack" ;
+                
+                :HumanGender "Male" ;
+                
+                :isOwnerOf :PD-Pedusa-PE771 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HD-OhriniucRoxana
+
+:HD-OhriniucRoxana rdf:type :Human ,
+                            owl:NamedIndividual ;
+                   
+                   :HumanWeight 115 ;
+                   
+                   :HumanAge 30 ;
+                   
+                   :HumanGender "Female" ;
+                   
+                   :HumanLastName "Ohriniuc" ;
+                   
+                   :HumanFirstName "Roxana" ;
+                   
+                   :isOwnerOf :PD-FitBit-Zip .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HD-ShankarRavi
+
+:HD-ShankarRavi rdf:type :Human ,
+                         owl:NamedIndividual ;
+                
+                :HumanWeight 180 ;
+                
+                :HumanAge 59 ;
+                
+                :HumanFirstName "Ravi" ;
+                
+                :HumanGender "Male" ;
+                
+                :HumanLastName "Shankar" ;
+                
+                :isOwnerOf :PD-FitBit-Flex ,
+                           :PD-Omron-HJ321 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PD-FitBit-Flex
+
+:PD-FitBit-Flex rdf:type :Pedometer ,
+                         :PedometerData ,
+                         owl:NamedIndividual ;
+                
+                :yAxis 28 ;
+                
+                :xAxis 32 ;
+                
+                :zAxis 47 ;
+                
+                :MotionPrimitives "UseTelephone" ;
+                
+                :isOwnedBy :HD-ShankarRavi ;
+                
+                :hasSensor :PS-Gyroscope ;
+                
+                :isStoringTimestamp :TS-2015-06-15-M .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PD-FitBit-Zip
+
+:PD-FitBit-Zip rdf:type :Pedometer ,
+                        :PedometerData ,
+                        owl:NamedIndividual ;
+               
+               :yAxis 23 ;
+               
+               :zAxis 34 ;
+               
+               :xAxis 37 ;
+               
+               :MotionPrimitives "CombHair" ;
+               
+               :isOwnedBy :HD-OhriniucRoxana ;
+               
+               :hasSensor :PS-Gyroscope ;
+               
+               :isStoringTimestamp :TS-2015-04-18-M .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PD-Omron-HJ321
+
+:PD-Omron-HJ321 rdf:type :Pedometer ,
+                         :PedometerData ,
+                         owl:NamedIndividual ;
+                
+                :zAxis 39 ;
+                
+                :yAxis 43 ;
+                
+                :xAxis 54 ;
+                
+                :MotionPrimitives "Walk" ;
+                
+                :isOwnedBy :HD-ShankarRavi ;
+                
+                :hasSensor :PS-Accelerometer ;
+                
+                :isStoringTimestamp :TS-2015-05-29-M .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PD-Omron-HJ720
+
+:PD-Omron-HJ720 rdf:type :Pedometer ,
+                         :PedometerData ,
+                         owl:NamedIndividual ;
+                
+                :xAxis 25 ;
+                
+                :yAxis 31 ;
+                
+                :zAxis 44 ;
+                
+                :MotionPrimitives "Walk" ;
+                
+                :isOwnedBy :HD-MedykMaciej ;
+                
+                :hasSensor :PS-Accelerometer ;
+                
+                :isStoringTimestamp :TS-2015-06-12-M .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PD-Pedusa-PE771
+
+:PD-Pedusa-PE771 rdf:type :Pedometer ,
+                          :PedometerData ,
+                          owl:NamedIndividual ;
+                 
+                 :zAxis 37 ;
+                 
+                 :xAxis 43 ;
+                 
+                 :yAxis 52 ;
+                 
+                 :MotionPrimitives "ClimbStairs" ;
+                 
+                 :isOwnedBy :HD-ObamaBarack ;
+                 
+                 :hasSensor :PS-Accelerometer ,
+                            :PS-Compass ;
+                 
+                 :isStoringTimestamp <http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#2015-01-25-13-24-00-TS-2015-01-25-C> .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PS-Accelerometer
+
+:PS-Accelerometer rdf:type :Accelerometer ,
+                           :PedometerSensor ,
+                           owl:NamedIndividual ;
+                  
+                  :isSensorOf :PD-Omron-HJ321 ,
+                              :PD-Omron-HJ720 ,
+                              :PD-Pedusa-PE771 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PS-Compass
+
+:PS-Compass rdf:type :Compass ,
+                     :PedometerSensor ,
+                     owl:NamedIndividual ;
+            
+            :isSensorOf :PD-Pedusa-PE771 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PS-Gyroscope
+
+:PS-Gyroscope rdf:type :Gyroscope ,
+                       :PedometerSensor ,
+                       owl:NamedIndividual ;
+              
+              :isSensorOf :PD-FitBit-Flex ,
+                          :PD-FitBit-Zip .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#TS-2015-04-18-M
+
+:TS-2015-04-18-M rdf:type :Timestamp ,
+                          owl:NamedIndividual ;
+                 
+                 :Second 00 ;
+                 
+                 :Month 04 ;
+                 
+                 :Hour 08 ;
+                 
+                 :Minute 12 ;
+                 
+                 :Day 18 ;
+                 
+                 :Year 2015 ;
+                 
+                 :Second "Miami" ;
+                 
+                 :isTimestampStoredBy :PD-FitBit-Zip .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#TS-2015-05-29-M
+
+:TS-2015-05-29-M rdf:type :Timestamp ,
+                          owl:NamedIndividual ;
+                 
+                 :Second 00 ;
+                 
+                 :Minute 01 ;
+                 
+                 :Month 05 ;
+                 
+                 :Hour 18 ;
+                 
+                 :Year 2015 ;
+                 
+                 :Day 29 ;
+                 
+                 :Timezone "Miami" ;
+                 
+                 :isTimestampStoredBy :PD-Omron-HJ321 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#TS-2015-06-12-M
+
+:TS-2015-06-12-M rdf:type :Timestamp ,
+                          owl:NamedIndividual ;
+                 
+                 :Second 00 ;
+                 
+                 :Month 06 ;
+                 
+                 :Day 12 ;
+                 
+                 :Year 2015 ;
+                 
+                 :Hour 23 ;
+                 
+                 :Minute 59 ;
+                 
+                 :Timezone "Miami" ;
+                 
+                 :isTimestampStoredBy :PD-Omron-HJ720 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#TS-2015-06-15-M
+
+:TS-2015-06-15-M rdf:type :Timestamp ,
+                          owl:NamedIndividual ;
+                 
+                 :Minute 00 ;
+                 
+                 :Month 06 ;
+                 
+                 :Hour 09 ;
+                 
+                 :Day 15 ;
+                 
+                 :Year 2015 ;
+                 
+                 :Minute 49 ;
+                 
+                 :Timezone "Miami" ;
+                 
+                 :isTimestampStoredBy :PD-FitBit-Flex .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#2015-01-25-13-24-00-TS-2015-01-25-C
+
+<http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#2015-01-25-13-24-00-TS-2015-01-25-C> rdf:type :Timestamp ,
+                                                                                                                         owl:NamedIndividual ;
+                                                                                                                
+                                                                                                                :Second 00 ;
+                                                                                                                
+                                                                                                                :Month 01 ;
+                                                                                                                
+                                                                                                                :Hour 13 ;
+                                                                                                                
+                                                                                                                :Year 2015 ;
+                                                                                                                
+                                                                                                                :Minute 24 ;
+                                                                                                                
+                                                                                                                :Day 25 ;
+                                                                                                                
+                                                                                                                :Timezone "Chicago" ;
+                                                                                                                
+                                                                                                                :isTimestampStoredBy :PD-Pedusa-PE771 .
+
+
+
+
+
+#################################################################
+#
+#    Annotations
+#
+#################################################################
+
+
+:PedometerSensor rdfs:comment "Pedometer sensor used in detecting HMP" .
+
+
+
+:Human rdfs:comment "Human using the device" .
+
+
+
+:PedometerStatus rdfs:comment "Pedometer status current parameters" .
+
+
+
+:MotionPrimitives rdfs:comment "Human Motion Primitives activities performed to be recorded by device" .
+
+
+
+:Timestamp rdfs:comment "Timestamp of the starting moment of the recording in the format [YYYY-MM-DD-HH-MM-SS]" .
 
 
 
@@ -790,13 +1441,17 @@
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Day
-                :Hour
-                :Minute
-                :Month
-                :Second
-                :Timezone
-                :Year
+  owl:members ( :Accelerometer
+                :Compass
+                :Gyroscope
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :MeasurementRange
+                :OutputDataRange
+                :PedometerCoordinates
+                :PedometerType
+                :Sensitivity
               )
 ] .
 [ rdf:type owl:AllDisjointClasses ;
@@ -814,34 +1469,6 @@
                 :StandupChair
                 :UseTelephone
                 :Walk
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :MeasurementRange
-                :OutputDataRange
-                :PedometerCoordinates
-                :PedometerType
-                :Sensitivity
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Age
-                :FirstName
-                :Gender
-                :LastName
-                :Weight
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Accelerometer
-                :Compass
-                :Gyroscope
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :xAxis
-                :yAxis
-                :zAxis
               )
 ] .
 
