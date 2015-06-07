@@ -614,14 +614,14 @@
 
 :Gender rdf:type owl:Class ;
         
-        owl:equivalentClass [ rdf:type owl:Class ;
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :HumanGender ;
+                              owl:someValuesFrom xsd:Name
+                            ] ,
+                            [ rdf:type owl:Class ;
                               owl:unionOf ( :Female
                                             :Male
                                           )
-                            ] ,
-                            [ rdf:type owl:Restriction ;
-                              owl:onProperty :HumanGender ;
-                              owl:someValuesFrom xsd:Name
                             ] ;
         
         rdfs:subClassOf :Human ;
@@ -840,15 +840,15 @@
 
 :PedometerSensor rdf:type owl:Class ;
                  
-                 owl:equivalentClass [ rdf:type owl:Restriction ;
-                                       owl:onProperty :PedometerSensor ;
-                                       owl:someValuesFrom xsd:Name
-                                     ] ,
-                                     [ rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Class ;
                                        owl:unionOf ( :Accelerometer
                                                      :Compass
                                                      :Gyroscope
                                                    )
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PedometerSensor ;
+                                       owl:someValuesFrom xsd:Name
                                      ] ;
                  
                  rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -1075,6 +1075,8 @@
                                 
                                 :isStoringActivity :MP-Walk ;
                                 
+                                :hasSensor :PS-Accelerometer ;
+                                
                                 :isStoringStatus :RD-001 ;
                                 
                                 :isStoringTimestamp :TS-2011-03-24-09-51-07 .
@@ -1089,6 +1091,8 @@
                                 :isStoringOwner :HD-MedykMaciej ;
                                 
                                 :isStoringActivity :MP-Walk ;
+                                
+                                :hasSensor :PS-Accelerometer ;
                                 
                                 :isStoringStatus :RD-002 ;
                                 
@@ -1105,6 +1109,8 @@
                                 
                                 :isStoringActivity :MP-Walk ;
                                 
+                                :hasSensor :PS-Accelerometer ;
+                                
                                 :isStoringStatus :RD-003 ;
                                 
                                 :isStoringTimestamp :TS-2011-03-24-09-51-07 .
@@ -1120,6 +1126,8 @@
                                 
                                 :isStoringActivity :MP-Walk ;
                                 
+                                :hasSensor :PS-Accelerometer ;
+                                
                                 :isStoringStatus :RD-004 ;
                                 
                                 :isStoringTimestamp :TS-2011-03-24-09-51-07 .
@@ -1134,6 +1142,8 @@
                                 :isStoringOwner :HD-MedykMaciej ;
                                 
                                 :isStoringActivity :MP-Walk ;
+                                
+                                :hasSensor :PS-Accelerometer ;
                                 
                                 :isStoringStatus :RD-005 ;
                                 
@@ -1179,6 +1189,16 @@
                           :A-2011-03-24-09-51-07-W-F1-003 ,
                           :A-2011-03-24-09-51-07-W-F1-004 ,
                           :A-2011-03-24-09-51-07-W-F1-005 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PS-Accelerometer
+
+:PS-Accelerometer rdf:type :Accelerometer ,
+                           :PedometerSensor ,
+                           owl:NamedIndividual ;
+                  
+                  :PedometerSensor "Accelerometer" .
 
 
 
@@ -1307,6 +1327,12 @@
 
 
 [ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Accelerometer
+                :Compass
+                :Gyroscope
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
   owl:members ( :BrushTeeth
                 :ClimbStairs
                 :CombHair
@@ -1329,12 +1355,6 @@
                 :PedometerCoordinates
                 :PedometerType
                 :Sensitivity
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Accelerometer
-                :Compass
-                :Gyroscope
               )
 ] .
 
