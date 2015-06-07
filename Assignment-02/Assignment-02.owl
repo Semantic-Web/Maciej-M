@@ -840,15 +840,15 @@
 
 :PedometerSensor rdf:type owl:Class ;
                  
-                 owl:equivalentClass [ rdf:type owl:Class ;
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :PedometerSensor ;
+                                       owl:someValuesFrom xsd:Name
+                                     ] ,
+                                     [ rdf:type owl:Class ;
                                        owl:unionOf ( :Accelerometer
                                                      :Compass
                                                      :Gyroscope
                                                    )
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty :PedometerSensor ;
-                                       owl:someValuesFrom xsd:Name
                                      ] ;
                  
                  rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -1066,10 +1066,87 @@
 #################################################################
 
 
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#A-2011-03-24-09-51-07-W-F1-001
+
+:A-2011-03-24-09-51-07-W-F1-001 rdf:type :PedometerData ,
+                                         owl:NamedIndividual ;
+                                
+                                :isStoringOwner :HD-MedykMaciej ;
+                                
+                                :isStoringActivity :MP-Walk ;
+                                
+                                :isStoringStatus :RD-001 ;
+                                
+                                :isStoringTimestamp :TS-2011-03-24-09-51-07 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#A-2011-03-24-09-51-07-W-F1-002
+
+:A-2011-03-24-09-51-07-W-F1-002 rdf:type :PedometerData ,
+                                         owl:NamedIndividual ;
+                                
+                                :isStoringOwner :HD-MedykMaciej ;
+                                
+                                :isStoringActivity :MP-Walk ;
+                                
+                                :isStoringStatus :RD-002 ;
+                                
+                                :isStoringTimestamp :TS-2011-03-24-09-51-07 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#A-2011-03-24-09-51-07-W-F1-003
+
+:A-2011-03-24-09-51-07-W-F1-003 rdf:type :PedometerData ,
+                                         owl:NamedIndividual ;
+                                
+                                :isStoringOwner :HD-MedykMaciej ;
+                                
+                                :isStoringActivity :MP-Walk ;
+                                
+                                :isStoringStatus :RD-003 ;
+                                
+                                :isStoringTimestamp :TS-2011-03-24-09-51-07 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#A-2011-03-24-09-51-07-W-F1-004
+
+:A-2011-03-24-09-51-07-W-F1-004 rdf:type :PedometerData ,
+                                         owl:NamedIndividual ;
+                                
+                                :isStoringOwner :HD-MedykMaciej ;
+                                
+                                :isStoringActivity :MP-Walk ;
+                                
+                                :isStoringStatus :RD-004 ;
+                                
+                                :isStoringTimestamp :TS-2011-03-24-09-51-07 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#A-2011-03-24-09-51-07-W-F1-005
+
+:A-2011-03-24-09-51-07-W-F1-005 rdf:type :PedometerData ,
+                                         owl:NamedIndividual ;
+                                
+                                :isStoringOwner :HD-MedykMaciej ;
+                                
+                                :isStoringActivity :MP-Walk ;
+                                
+                                :isStoringStatus :RD-005 ;
+                                
+                                :isStoringTimestamp :TS-2011-03-24-09-51-07 .
+
+
+
 ###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HD-MedykMaciej
 
 :HD-MedykMaciej rdf:type :Human ,
                          owl:NamedIndividual ;
+                
+                :Human 1 ;
                 
                 :HumanWeight 210 ;
                 
@@ -1077,328 +1154,117 @@
                 
                 :HumanLastName "Medyk" ;
                 
-                :HumanGender "Male" ;
-                
                 :HumanFirstName "Maciej" ;
                 
-                :isOwnerOf :PD-Omron-HJ720 .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HD-ObamaBarack
-
-:HD-ObamaBarack rdf:type :Human ,
-                         owl:NamedIndividual ;
-                
-                :HumanWeight 195 ;
-                
-                :HumanAge 54 ;
-                
-                :HumanLastName "Obama" ;
-                
-                :HumanFirstName "Barack" ;
-                
-                :HumanGender "Male" ;
-                
-                :isOwnerOf :PD-Pedusa-PE771 .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HD-OhriniucRoxana
-
-:HD-OhriniucRoxana rdf:type :Human ,
-                            owl:NamedIndividual ;
-                   
-                   :HumanWeight 115 ;
-                   
-                   :HumanAge 30 ;
-                   
-                   :HumanGender "Female" ;
-                   
-                   :HumanLastName "Ohriniuc" ;
-                   
-                   :HumanFirstName "Roxana" ;
-                   
-                   :isOwnerOf :PD-FitBit-Zip .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#HD-ShankarRavi
-
-:HD-ShankarRavi rdf:type :Human ,
-                         owl:NamedIndividual ;
-                
-                :HumanWeight 180 ;
-                
-                :HumanAge 59 ;
-                
-                :HumanFirstName "Ravi" ;
-                
-                :HumanGender "Male" ;
-                
-                :HumanLastName "Shankar" ;
-                
-                :isOwnerOf :PD-FitBit-Flex ,
-                           :PD-Omron-HJ321 .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PD-FitBit-Flex
-
-:PD-FitBit-Flex rdf:type :Pedometer ,
-                         :PedometerData ,
-                         owl:NamedIndividual ;
-                
-                :yAxis 28 ;
-                
-                :xAxis 32 ;
-                
-                :zAxis 47 ;
-                
-                :MotionPrimitives "UseTelephone" ;
-                
-                :isOwnedBy :HD-ShankarRavi ;
-                
-                :hasSensor :PS-Gyroscope ;
-                
-                :isStoringTimestamp :TS-2015-06-15-M .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PD-FitBit-Zip
-
-:PD-FitBit-Zip rdf:type :Pedometer ,
-                        :PedometerData ,
-                        owl:NamedIndividual ;
-               
-               :yAxis 23 ;
-               
-               :zAxis 34 ;
-               
-               :xAxis 37 ;
-               
-               :MotionPrimitives "CombHair" ;
-               
-               :isOwnedBy :HD-OhriniucRoxana ;
-               
-               :hasSensor :PS-Gyroscope ;
-               
-               :isStoringTimestamp :TS-2015-04-18-M .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PD-Omron-HJ321
+                :HumanGender "F" .
 
-:PD-Omron-HJ321 rdf:type :Pedometer ,
-                         :PedometerData ,
-                         owl:NamedIndividual ;
-                
-                :zAxis 39 ;
-                
-                :yAxis 43 ;
-                
-                :xAxis 54 ;
-                
-                :MotionPrimitives "Walk" ;
-                
-                :isOwnedBy :HD-ShankarRavi ;
-                
-                :hasSensor :PS-Accelerometer ;
-                
-                :isStoringTimestamp :TS-2015-05-29-M .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PD-Omron-HJ720
-
-:PD-Omron-HJ720 rdf:type :Pedometer ,
-                         :PedometerData ,
-                         owl:NamedIndividual ;
-                
-                :xAxis 25 ;
-                
-                :yAxis 31 ;
-                
-                :zAxis 44 ;
-                
-                :MotionPrimitives "Walk" ;
-                
-                :isOwnedBy :HD-MedykMaciej ;
-                
-                :hasSensor :PS-Accelerometer ;
-                
-                :isStoringTimestamp :TS-2015-06-12-M .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PD-Pedusa-PE771
-
-:PD-Pedusa-PE771 rdf:type :Pedometer ,
-                          :PedometerData ,
-                          owl:NamedIndividual ;
-                 
-                 :zAxis 37 ;
-                 
-                 :xAxis 43 ;
-                 
-                 :yAxis 52 ;
-                 
-                 :MotionPrimitives "ClimbStairs" ;
-                 
-                 :isOwnedBy :HD-ObamaBarack ;
-                 
-                 :hasSensor :PS-Accelerometer ,
-                            :PS-Compass ;
-                 
-                 :isStoringTimestamp <http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#2015-01-25-13-24-00-TS-2015-01-25-C> .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PS-Accelerometer
-
-:PS-Accelerometer rdf:type :Accelerometer ,
-                           :PedometerSensor ,
-                           owl:NamedIndividual ;
-                  
-                  :isSensorOf :PD-Omron-HJ321 ,
-                              :PD-Omron-HJ720 ,
-                              :PD-Pedusa-PE771 .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PS-Compass
-
-:PS-Compass rdf:type :Compass ,
-                     :PedometerSensor ,
-                     owl:NamedIndividual ;
-            
-            :isSensorOf :PD-Pedusa-PE771 .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#PS-Gyroscope
-
-:PS-Gyroscope rdf:type :Gyroscope ,
-                       :PedometerSensor ,
-                       owl:NamedIndividual ;
-              
-              :isSensorOf :PD-FitBit-Flex ,
-                          :PD-FitBit-Zip .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#TS-2015-04-18-M
-
-:TS-2015-04-18-M rdf:type :Timestamp ,
-                          owl:NamedIndividual ;
-                 
-                 :Second 00 ;
-                 
-                 :Month 04 ;
-                 
-                 :Hour 08 ;
-                 
-                 :Minute 12 ;
-                 
-                 :Day 18 ;
-                 
-                 :Year 2015 ;
-                 
-                 :Second "Miami" ;
-                 
-                 :isTimestampStoredBy :PD-FitBit-Zip .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#TS-2015-05-29-M
-
-:TS-2015-05-29-M rdf:type :Timestamp ,
-                          owl:NamedIndividual ;
-                 
-                 :Second 00 ;
-                 
-                 :Minute 01 ;
-                 
-                 :Month 05 ;
-                 
-                 :Hour 18 ;
-                 
-                 :Year 2015 ;
-                 
-                 :Day 29 ;
-                 
-                 :Timezone "Miami" ;
-                 
-                 :isTimestampStoredBy :PD-Omron-HJ321 .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#TS-2015-06-12-M
-
-:TS-2015-06-12-M rdf:type :Timestamp ,
-                          owl:NamedIndividual ;
-                 
-                 :Second 00 ;
-                 
-                 :Month 06 ;
-                 
-                 :Day 12 ;
-                 
-                 :Year 2015 ;
-                 
-                 :Hour 23 ;
-                 
-                 :Minute 59 ;
-                 
-                 :Timezone "Miami" ;
-                 
-                 :isTimestampStoredBy :PD-Omron-HJ720 .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#TS-2015-06-15-M
-
-:TS-2015-06-15-M rdf:type :Timestamp ,
-                          owl:NamedIndividual ;
-                 
-                 :Minute 00 ;
-                 
-                 :Month 06 ;
-                 
-                 :Hour 09 ;
-                 
-                 :Day 15 ;
-                 
-                 :Year 2015 ;
-                 
-                 :Minute 49 ;
-                 
-                 :Timezone "Miami" ;
-                 
-                 :isTimestampStoredBy :PD-FitBit-Flex .
-
-
-
-###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#2015-01-25-13-24-00-TS-2015-01-25-C
-
-<http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#2015-01-25-13-24-00-TS-2015-01-25-C> rdf:type :Timestamp ,
-                                                                                                                         owl:NamedIndividual ;
-                                                                                                                
-                                                                                                                :Second 00 ;
-                                                                                                                
-                                                                                                                :Month 01 ;
-                                                                                                                
-                                                                                                                :Hour 13 ;
-                                                                                                                
-                                                                                                                :Year 2015 ;
-                                                                                                                
-                                                                                                                :Minute 24 ;
-                                                                                                                
-                                                                                                                :Day 25 ;
-                                                                                                                
-                                                                                                                :Timezone "Chicago" ;
-                                                                                                                
-                                                                                                                :isTimestampStoredBy :PD-Pedusa-PE771 .
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#MP-Walk
+
+:MP-Walk rdf:type :MotionPrimitives ,
+                  owl:NamedIndividual ;
+         
+         :MotionPrimitives "Walk" .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#Omron-HJ720
+
+:Omron-HJ720 rdf:type :Pedometer ,
+                      owl:NamedIndividual ;
+             
+             :isStorageOf :A-2011-03-24-09-51-07-W-F1-001 ,
+                          :A-2011-03-24-09-51-07-W-F1-002 ,
+                          :A-2011-03-24-09-51-07-W-F1-003 ,
+                          :A-2011-03-24-09-51-07-W-F1-004 ,
+                          :A-2011-03-24-09-51-07-W-F1-005 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#RD-001
+
+:RD-001 rdf:type :PedometerCoordinates ,
+                 owl:NamedIndividual ;
+        
+        :xAxis 32 ;
+        
+        :zAxis 40 ;
+        
+        :yAxis 47 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#RD-002
+
+:RD-002 rdf:type :PedometerCoordinates ,
+                 owl:NamedIndividual ;
+        
+        :xAxis 32 ;
+        
+        :zAxis 40 ;
+        
+        :yAxis 47 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#RD-003
+
+:RD-003 rdf:type :PedometerCoordinates ,
+                 owl:NamedIndividual ;
+        
+        :xAxis 32 ;
+        
+        :zAxis 37 ;
+        
+        :yAxis 48 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#RD-004
+
+:RD-004 rdf:type :PedometerCoordinates ,
+                 owl:NamedIndividual ;
+        
+        :xAxis 31 ;
+        
+        :zAxis 34 ;
+        
+        :yAxis 46 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#RD-005
+
+:RD-005 rdf:type :PedometerCoordinates ,
+                 owl:NamedIndividual ;
+        
+        :xAxis 29 ;
+        
+        :zAxis 34 ;
+        
+        :yAxis 44 .
+
+
+
+###  http://www.semanticweb.org/eclipse/ontologies/2015/5/untitled-ontology-27#TS-2011-03-24-09-51-07
+
+:TS-2011-03-24-09-51-07 rdf:type :Timestamp ,
+                                 owl:NamedIndividual ;
+                        
+                        :Month 03 ;
+                        
+                        :Second 07 ;
+                        
+                        :Hour 09 ;
+                        
+                        :Year 2011 ;
+                        
+                        :Day 24 ;
+                        
+                        :Minute 51 ;
+                        
+                        :Timezone "Miami" .
 
 
 
@@ -1419,11 +1285,11 @@
 
 
 
-:PedometerStatus rdfs:comment "Pedometer status current parameters" .
-
-
-
 :MotionPrimitives rdfs:comment "Human Motion Primitives activities performed to be recorded by device" .
+
+
+
+:PedometerStatus rdfs:comment "Pedometer status current parameters" .
 
 
 
@@ -1441,20 +1307,6 @@
 
 
 [ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Accelerometer
-                :Compass
-                :Gyroscope
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :MeasurementRange
-                :OutputDataRange
-                :PedometerCoordinates
-                :PedometerType
-                :Sensitivity
-              )
-] .
-[ rdf:type owl:AllDisjointClasses ;
   owl:members ( :BrushTeeth
                 :ClimbStairs
                 :CombHair
@@ -1469,6 +1321,20 @@
                 :StandupChair
                 :UseTelephone
                 :Walk
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :MeasurementRange
+                :OutputDataRange
+                :PedometerCoordinates
+                :PedometerType
+                :Sensitivity
+              )
+] .
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :Accelerometer
+                :Compass
+                :Gyroscope
               )
 ] .
 
