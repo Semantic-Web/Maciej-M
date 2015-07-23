@@ -13,3 +13,5 @@ Semantic Web Course Submissions of Maciej Medyk
 [Assignment 5 - Jenna and Pellet on Eclipse](Assignment-05)
 
 [Midterm Exam - Raspberry Pi in Wearable](Midterm Exam)
+
+[Team Main Project - Raspberry Pi in Wearable](Team Main Project)
