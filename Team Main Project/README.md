@@ -1,6 +1,8 @@
 # Raspberry Pi in Wearable
 
-[Video Presentation of Raspberry Pi in Action](http://youtu.be/IZbj7TuvPh8)
+[Video Presentation of Raspberry Pi in Action Video 1](http://youtu.be/IZbj7TuvPh8)
+
+[Video Presentation of Raspberry Pi in Action Video 2](https://youtu.be/APa2EAfMFkI)
 
 [Accademic Paper and Documentation](Documentation)
 
