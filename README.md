@@ -1,6 +1,4 @@
-# Maciej-M
-
-Semantic Web Course Submissions of Maciej Medyk
+# Semantic Web Course Submissions of Maciej Medyk
 
 [Assignment 1 - Python Tutorial](Assignment-01)
 
